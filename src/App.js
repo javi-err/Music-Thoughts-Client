@@ -1,24 +1,38 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { BrowserRouter, Switch, Route } from 'react-router-dom';
+import thoughtPage from './Routes/ThoughtPage'
+import ThoughtListPage from './Routes/ThoughtListPage';
+import ThoughtListContextProvider from './Context/ThoughtListContextProvider';
+import Header from './components/Header/Header'
+import BackToTop from './components/Header/BackToTop';
+
+
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+    <main className='App'>
+      < Header/> 
+     
+
+      <BrowserRouter>
+      <ThoughtListContextProvider>
+      <Switch>
+        <Route 
+        exact
+        path={'/'}
+        component={ThoughtListPage}
+        />
+        <Route
+        path={'/thoughts/thoughtsID'}
+        component={thoughtPage}
+        /> 
+      </Switch>
+      </ThoughtListContextProvider>
+      </BrowserRouter>
+      
+       <BackToTop/>
+    </main>
     </div>
   );
 }
