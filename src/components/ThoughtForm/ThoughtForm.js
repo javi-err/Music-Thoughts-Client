@@ -36,7 +36,7 @@ export default class ThoughtForm extends Component {
       <form className = "ThoughtForm" onSubmit={this.handleSubmit}>
         <input name='title' required id='title' placeholder='Type the title of your post'></input>< br/>
          <textarea name="content" data-limit="300" required id="content" cols='30' rows='3' placeholder="Type your post"></textarea>< br/>
-         <select id="select-genre" id='tag' name='tag'>
+         <select id="select-genre" name='tag'>
                     <option value = "notagenre">Select your genre</option>
                     <option value = "Hip-Hop/Rap">Hip-Hop/Rap</option>
                     <option value = "R&B">R&B</option>
@@ -55,4 +55,6 @@ export default class ThoughtForm extends Component {
     )
   }
 }
+
+module.export = ThoughtForm
 

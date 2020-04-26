@@ -1,18 +1,25 @@
 import React, { Component } from 'react'
 import ThoughtListContext from '../../Context/ThoughtListContext'
 import ThoughtApiService from '../../Services/thought-api-service'
+import ThoughtForm from '../ThoughtForm/ThoughtForm'
+import ThoughtListItem from '../ThoughtList/ThoughtListItem'
 
 
 
 export default class CommentForm extends Component {
   static contextType = ThoughtListContext
-
+  
   handleSubmit = ev => {
     ev.preventDefault()
+    
     const { thought } = this.context
     const  text  = ev.target.text.value
+    const id = ThoughtListItem.props.thoughtid
+    console.log(ThoughtListItem.thoughtid)
     console.log(text)
-    ThoughtApiService.postComment (thought.id, text)
+    
+    
+    ThoughtApiService.postComment(text, id)
       .then(this.context.addComment)
       // .then(() => {
       

@@ -18,7 +18,7 @@ export class ThoughtListItem extends Component {
           <ThoughtAuthor thought={thought} />< br/>
           <ThoughtTag thought={thought} />< br/>
           <ThoughtContent thought={thought}/>
-          <CommentForm />
+          <CommentForm thoughtid={thought.id}/>
         </footer>
       </div>
         
