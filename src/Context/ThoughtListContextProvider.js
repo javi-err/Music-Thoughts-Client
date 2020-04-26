@@ -34,14 +34,16 @@ class ThoughtListProvider extends Component {
     })
   }
 
+  setComment = comment => {
+    this.setState({ comment })
+  }
   
   addComment = comments => {
-    this.setComments([
       this.setState({
         comments: [...this.state.comments, comments]
 
       })
-    ])
+
   }
 
 
@@ -54,6 +56,7 @@ class ThoughtListProvider extends Component {
       setThoughtList: this.setThoughtList,
       setPost: this.setPost,
       addPost: this.addPost,  
+      setComment: this.setComment,
       addComment: this.addComment
     }
     return (

@@ -14,12 +14,12 @@ export default class ThoughtPage extends Component {
   static contextType = ThoughtListContext
 
   componentDidMount() {
-    const { thoughtID } = this.props.match.params
+    const { thoughtsID } = this.props.match.params
     this.context.clearError()
-    ThoughtApiService.getthought(thoughtID)
+    ThoughtApiService.getthought(thoughtsID)
       .then(this.context.setThought)
       .catch(this.context.setError)
-    ThoughtApiService.getthoughtComments(thoughtID)
+    ThoughtApiService.getthoughtComments(thoughtsID)
       .then(this.context.setComments)
       .catch(this.context.setError)
   }
@@ -39,9 +39,12 @@ export default class ThoughtPage extends Component {
       <ThoughtContent thought={thought} />
       <CommentForm />
       <ThoughtComments comments={comments} />
-      
+  
     </>
   }
+  
+  
+  
 
   render() {
     const { error, thought } = this.context
@@ -60,8 +63,10 @@ export default class ThoughtPage extends Component {
         {content}
       </div>
     )
+    
   }
 }
+
 
 
 function ThoughtTag({ thought = {tag : ''}}) {

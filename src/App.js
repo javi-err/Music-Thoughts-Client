@@ -24,7 +24,7 @@ function App() {
         component={ThoughtListPage}
         />
         <Route
-        path={'/thoughts/thoughtsID'}
+        path={'/thoughts/:thoughtsID'}
         component={thoughtPage}
         /> 
       </Switch>

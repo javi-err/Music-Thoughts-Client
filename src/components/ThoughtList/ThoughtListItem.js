@@ -61,5 +61,7 @@ function ThoughtContent( {thought}) {
   )
 }
 
+
+
 export default ThoughtListItem
 

@@ -8,17 +8,29 @@ import ThoughtListItem from '../ThoughtList/ThoughtListItem'
 
 export default class CommentForm extends Component {
   static contextType = ThoughtListContext
+  constructor(){
+    super()
+    this.state = {
+      value: '',
+    }
+  }
   
+  updateComment = ({target}) => {
+    const {value: text} = target
+    this.setState({
+      text
+    })
+    console.log(this.state.text)
+  }
   handleSubmit = ev => {
     ev.preventDefault()
     
-    const { thought } = this.context
-    const  text  = ev.target.text.value
-    console.log(ThoughtListItem.thoughtid)
-    console.log(text)
+    const { thoughtid } = this.props
+    const  text  = this.state.text
+    console.log(thoughtid)
     
     
-    ThoughtApiService.postComment(text, thought.id)
+    ThoughtApiService.postComment(thoughtid, text)
       .then(this.context.addComment)
       // .then(() => {
       
@@ -30,7 +42,7 @@ export default class CommentForm extends Component {
     return (
       <form className='CommentForm' onSubmit={this.handleSubmit}>
         <div className='text'>
-          <textarea
+          <textarea onChange={event=>this.updateComment(event)}
             required
             aria-label='Type a comment...'
             name='text'
@@ -48,4 +60,5 @@ export default class CommentForm extends Component {
   }
 
 }
+
 
