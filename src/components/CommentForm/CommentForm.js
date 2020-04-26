@@ -14,12 +14,11 @@ export default class CommentForm extends Component {
     
     const { thought } = this.context
     const  text  = ev.target.text.value
-    const id = ThoughtListItem.props.thoughtid
     console.log(ThoughtListItem.thoughtid)
     console.log(text)
     
     
-    ThoughtApiService.postComment(text, id)
+    ThoughtApiService.postComment(text, thought.id)
       .then(this.context.addComment)
       // .then(() => {
       
