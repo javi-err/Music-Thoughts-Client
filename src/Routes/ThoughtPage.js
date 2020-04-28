@@ -31,7 +31,10 @@ export default class ThoughtPage extends Component {
 
   renderThought() {
     const { thought } = this.context
-    console.log({thought})
+    const comments = this.context.comments.filter((comment) => {
+      return comment.thought_id === this.props.thoughtsid
+    })
+    console.log(comments)
 
   }
   
