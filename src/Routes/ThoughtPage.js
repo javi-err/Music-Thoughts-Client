@@ -15,7 +15,7 @@ export default class ThoughtPage extends Component {
   static contextType = ThoughtListContext
 
   componentDidMount() {
-    const { thoughtsID } = this.props.match.params
+    const { thoughtsID } = this.props.thoughtsid
     this.context.clearError()
     ThoughtApiService.getthought(thoughtsID)
       .then(this.context.addThought)
@@ -25,9 +25,9 @@ export default class ThoughtPage extends Component {
       .catch(this.context.setError)
   }
 
-  componentWillUnmount() {
-    this.context.clearThought()
-  }
+  // componentWillUnmount() {
+  //   this.context.clearThought()
+  // }
 
   renderThought() {
     const { thought } = this.context

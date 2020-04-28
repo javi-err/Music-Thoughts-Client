@@ -21,7 +21,7 @@ export class ThoughtListItem extends Component {
           <ThoughtTag thought={thought} />< br/>
           <ThoughtContent thought={thought}/>
           <CommentForm thoughtid={thought.id}/>
-          <ThoughtPage />
+          <ThoughtPage thoughtsid={thought.id}/>
         </footer>
       </div>
         
