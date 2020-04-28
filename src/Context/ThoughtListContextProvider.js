@@ -5,13 +5,17 @@ class ThoughtListProvider extends Component {
   
   state = {
     thoughtList: [],
-    post: [],
+    thought: [],
     comments: [],
     error: null,
   }
 
   setThoughtList = thoughtList => {
     this.setState({thoughtList})
+  }
+
+  setThought = thought => {
+    this.setState({thought})
   }
 
   setError = error => {

@@ -40,7 +40,7 @@ export default class ThoughtPage extends Component {
       <ThoughtForm /> 
       <ThoughtContent thought={thought} />
       <CommentForm /> />
-    
+
       
   
     </>
@@ -50,7 +50,7 @@ export default class ThoughtPage extends Component {
   
 
   render() {
-    const { thought, error } = this.context
+    const thought = this.context.thoughtList.find()
     let content
     console.log({thought})
     if (error) {
