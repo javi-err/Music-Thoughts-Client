@@ -1,11 +1,13 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 import CommentForm from '../CommentForm/CommentForm'
+import ThoughtPage from '../../Routes/ThoughtPage'
 
 export class ThoughtListItem extends Component {
   render() {
 
     const { thought } = this.props
+    console.log()
     return (
       <div className='ThoughtListItem'>
         <header className='ThoughtListItem-header'>
@@ -19,6 +21,7 @@ export class ThoughtListItem extends Component {
           <ThoughtTag thought={thought} />< br/>
           <ThoughtContent thought={thought}/>
           <CommentForm thoughtid={thought.id}/>
+          <ThoughtPage />
         </footer>
       </div>
         
@@ -57,6 +60,14 @@ function ThoughtContent( {thought}) {
   return ( 
     <span className='ThoughtListItem-content'>
       {thought.content}
+    </span>
+  )
+}
+
+function CommentContent( {thought} ) {
+  return (
+    <span className='ThoughtListItem-comments'>
+      {thought.comment}
     </span>
   )
 }

@@ -3,6 +3,7 @@ import ThoughtListContext from '../Context/ThoughtListContext'
 import ThoughtApiService from '../Services/thought-api-service'
 import ThoughtForm from '../components/ThoughtForm/ThoughtForm'
 import CommentForm from '../components/CommentForm/CommentForm'
+import thoughtApiService from '../Services/thought-api-service';
 
 
 
@@ -29,7 +30,8 @@ export default class ThoughtPage extends Component {
   }
 
   renderThought() {
-    const { thought, comments } = this.context
+    const { thought } = this.context
+    console.log({thought})
     return <>
       <h2>{thought.title}</h2>
       <p>{thought.tag} />
@@ -37,8 +39,9 @@ export default class ThoughtPage extends Component {
       </p>
       <ThoughtForm /> 
       <ThoughtContent thought={thought} />
-      <CommentForm />
-      <ThoughtComments comments={comments} />
+      <CommentForm /> />
+    
+      
   
     </>
   }
@@ -47,8 +50,9 @@ export default class ThoughtPage extends Component {
   
 
   render() {
-    const { error, thought } = this.context
+    const { thought, error } = this.context
     let content
+    console.log({thought})
     if (error) {
       content = (error.error === `Thought doesn't exist`)
         ? <p className='red'>Thought not found</p>
