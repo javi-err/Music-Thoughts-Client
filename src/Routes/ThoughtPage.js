@@ -15,12 +15,12 @@ export default class ThoughtPage extends Component {
   static contextType = ThoughtListContext
 
   componentDidMount() {
-    const { thoughtsID } = this.props.thoughtsid
+    const { thoughtsid } = this.props
     this.context.clearError()
-    ThoughtApiService.getthought(thoughtsID)
+    ThoughtApiService.getthought(thoughtsid)
       .then(this.context.addThought)
       .catch(this.context.setError)
-    ThoughtApiService.getthoughtComments(thoughtsID)
+    ThoughtApiService.getthoughtComments(thoughtsid)
       .then(this.context.setComments)
       .catch(this.context.setError)
   }
@@ -32,18 +32,7 @@ export default class ThoughtPage extends Component {
   renderThought() {
     const { thought } = this.context
     console.log({thought})
-    return <>
-      <h2>{thought.title}</h2>
-      <p>{thought.tag} />
-      {thought.date_created} />
-      </p>
-      <ThoughtForm /> 
-      <ThoughtContent thought={thought} />
-      <CommentForm /> />  
 
-      
-  
-    </>
   }
   
   
@@ -52,14 +41,26 @@ export default class ThoughtPage extends Component {
 
   render() {
     const thought = this.context.thoughtList.find((thought) => {
-      return thought.id === this.props.match.params.thoughtsID
+      return thought.id === this.props.thoughtsid
     })
     let content
     console.log({thought})
      if (!thought) {
-      content = <div className='loading' />
-    } else {
-      content = this.renderThought()
+        content = (
+        <>
+            <h2>{thought.title}</h2>
+            <p>{thought.tag} />
+            {thought.date_created} />
+            </p>
+            <ThoughtForm /> 
+            <ThoughtContent thought={thought} />
+            <CommentForm /> />  
+            >
+      
+            
+        
+          </>
+      )
     }
     return (
       <div className='ThoughtPage'>

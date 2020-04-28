@@ -55,6 +55,7 @@ class ThoughtListProvider extends Component {
 
   render() {
     const value = {
+      comments: this.state.comments,
       thoughtList: this.state.thoughtList,
       error: this.state.error,
       setError: this.setError,
