@@ -18,7 +18,7 @@ export default class ThoughtPage extends Component {
     const { thoughtsID } = this.props.match.params
     this.context.clearError()
     ThoughtApiService.getthought(thoughtsID)
-      .then(this.context.setThought)
+      .then(this.context.addThought)
       .catch(this.context.setError)
     ThoughtApiService.getthoughtComments(thoughtsID)
       .then(this.context.setComments)
@@ -39,7 +39,7 @@ export default class ThoughtPage extends Component {
       </p>
       <ThoughtForm /> 
       <ThoughtContent thought={thought} />
-      <CommentForm /> />
+      <CommentForm /> />  
 
       
   
@@ -49,15 +49,14 @@ export default class ThoughtPage extends Component {
   
   
 
+
   render() {
-    const thought = this.context.thoughtList.find()
+    const thought = this.context.thoughtList.find((thought) => {
+      return thought.id === this.props.match.params.thoughtsID
+    })
     let content
     console.log({thought})
-    if (error) {
-      content = (error.error === `Thought doesn't exist`)
-        ? <p className='red'>Thought not found</p>
-        : <p className='red'>There was an error</p>
-    } else if (!thought.id) {
+     if (!thought) {
       content = <div className='loading' />
     } else {
       content = this.renderThought()
@@ -69,7 +68,8 @@ export default class ThoughtPage extends Component {
     )
     
   }
-}
+  }
+
 
 
 

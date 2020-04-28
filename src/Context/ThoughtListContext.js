@@ -1,5 +1,7 @@
 import React, { Component } from 'react'
 
+
+
 const ThoughtListContext = React.createContext({
   thoughtList: [],
   thought: [],
@@ -7,7 +9,7 @@ const ThoughtListContext = React.createContext({
   setError: () => {},
   clearError: () => {},
   setThoughtList: () => {},
-  setThought: () => {},
+  addThought: () => {},
   setPost: () => {},
   addPost: () => {}, 
 })

@@ -14,8 +14,10 @@ class ThoughtListProvider extends Component {
     this.setState({thoughtList})
   }
 
-  setThought = thought => {
-    this.setState({thought})
+  addThought = thought => {
+    this.setState({
+      thoughtList: [...this.state.thoughtList, thought]
+    })
   }
 
   setError = error => {
@@ -27,8 +29,8 @@ class ThoughtListProvider extends Component {
     this.setState({error: null})
   }
 
-  setPost = post => {
-    this.setState({ post })
+  setPost = thought => {
+    this.setState({ thought })
   }
 
   addPost = post => {
