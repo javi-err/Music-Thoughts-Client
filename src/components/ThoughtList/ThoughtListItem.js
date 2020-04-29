@@ -7,7 +7,6 @@ export class ThoughtListItem extends Component {
   render() {
 
     const { thought } = this.props
-    console.log()
     return (
       <div className='ThoughtListItem'>
         <header className='ThoughtListItem-header'>

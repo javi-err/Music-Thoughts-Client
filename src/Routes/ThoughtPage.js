@@ -21,7 +21,7 @@ export default class ThoughtPage extends Component {
       .then(this.context.addThought)
       .catch(this.context.setError)
     ThoughtApiService.getthoughtComments(thoughtsid)
-      .then(this.context.setComments)
+      .then(this.context.addComment)
       .catch(this.context.setError)
   }
 
@@ -29,14 +29,7 @@ export default class ThoughtPage extends Component {
   //   this.context.clearThought()
   // }
 
-  renderThought() {
-    const { thought } = this.context
-    const comments = this.context.comments.filter((comment) => {
-      return comment.thought_id === this.props.thoughtsid
-    })
-    console.log(comments)
 
-  }
   
   
   
@@ -47,7 +40,11 @@ export default class ThoughtPage extends Component {
       return thought.id === this.props.thoughtsid
     })
     let content
-    console.log({thought})
+
+    const comments = this.context.comments.filter((comment) => {
+      return comment.thought_id === this.props.thoughtsid
+    })
+    console.log(this.context.comments)
      if (!thought) {
         content = (
         <>
@@ -57,8 +54,9 @@ export default class ThoughtPage extends Component {
             </p>
             <ThoughtForm /> 
             <ThoughtContent thought={thought} />
-            <CommentForm /> />  
-            >
+            <CommentForm /> 
+            <ThoughtComments comments={comments}/>
+            
       
             
         
