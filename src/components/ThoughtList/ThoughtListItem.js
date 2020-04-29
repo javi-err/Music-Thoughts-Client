@@ -17,9 +17,8 @@ export class ThoughtListItem extends Component {
         </header>
         <footer className='ThoughtListItem-footer'>
           <ThoughtAuthor thought={thought} />< br/>
-          <ThoughtTag thought={thought} />< br/>
+          <ThoughtTag thought={thought}/>< br/>
           <ThoughtContent thought={thought}/>
-          <CommentForm thoughtid={thought.id}/>
           <ThoughtPage thoughtsid={thought.id}/>
         </footer>
       </div>

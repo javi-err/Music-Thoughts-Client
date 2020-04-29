@@ -45,7 +45,7 @@ export default class ThoughtPage extends Component {
       return comment.thought_id === this.props.thoughtsid
     })
     console.log(this.context.comments)
-     if (!thought) {
+     if (thought) {
         content = (
         <>
             <h2>{thought.title}</h2>
@@ -53,12 +53,8 @@ export default class ThoughtPage extends Component {
             {thought.date_created} />
             </p>
             <ThoughtForm /> 
-            <ThoughtContent thought={thought} />
-            <CommentForm /> 
+            <ThoughtContent thought={thought}/>
             <ThoughtComments comments={comments}/>
-            
-      
-            
         
           </>
       )
