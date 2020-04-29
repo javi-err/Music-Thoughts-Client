@@ -18,6 +18,7 @@ export class ThoughtListPage extends Component {
   renderThoughts() {
     const { thoughtList = [] } = this.context
     return thoughtList.map(thought => 
+     
       <ThoughtListItem
       key={thought.id}
       thought={thought}

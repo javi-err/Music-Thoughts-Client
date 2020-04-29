@@ -8,6 +8,7 @@ export class ThoughtListItem extends Component {
   render() {
 
     const { thought } = this.props
+    console.log({thought})
     return (
       <div className='ThoughtListItem'>
         <header className='ThoughtListItem-header'>
@@ -17,7 +18,7 @@ export class ThoughtListItem extends Component {
         </header>
         <footer className='ThoughtListItem-footer'>
           <ThoughtPage thoughtsid={thought.id}/>
-          <CommentForm />
+          <CommentForm thoughtsid={thought.id}/>
         </footer>
       </div>
         

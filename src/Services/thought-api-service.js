@@ -54,17 +54,20 @@ const thoughtApiService = {
           : res.json()
       )
   },
-  postComment(thoughtID, thought_text) {
+  postComment(thoughtid, thought_text, date_created) {
+    console.log(thoughtid)
     return fetch(`${config.API_ENDPOINT}/comments`, {
       method: 'POST',
       headers: {
         'content-type': 'application/json',
       },
       body: JSON.stringify({
-        thought_id: thoughtID,
+        thought_id: thoughtid,
         thought_text,
+        date_created,
       }),
     })
+
       .then(res =>
         (!res.ok)
           ? res.json().then(e => Promise.reject(e))

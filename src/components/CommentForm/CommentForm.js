@@ -8,8 +8,8 @@ import ThoughtListItem from '../ThoughtList/ThoughtListItem'
 
 export default class CommentForm extends Component {
   static contextType = ThoughtListContext
-  constructor(){
-    super()
+  constructor(props){
+    super(props)
     this.state = {
       value: '',
     }
@@ -28,10 +28,10 @@ export default class CommentForm extends Component {
     const { thoughtid } = this.props
     const  text  = this.state.text
     console.log(thoughtid)
-    
+    console.log(text)
     
     ThoughtApiService.postComment(thoughtid, text)
-      .then(this.context.addComment)
+      .then(this.context.setComment)
       // .then(() => {
       
       // })

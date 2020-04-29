@@ -41,9 +41,10 @@ export default class ThoughtPage extends Component {
     })
     let content
 
-    const comments = this.context.comments.filter((comment) => {
-      return comment.thought_id === this.props.thoughtsid
-    })
+    const com = this.context.comments && this.context.comments.flat(); 
+    const comments = com.filter((comment) => {
+         return comment.thought_id === this.props.thoughtsid
+       })
     console.log(this.context.comments)
      if (thought) {
         content = (
@@ -92,10 +93,10 @@ function ThoughtComments({ comments = [] }) {
       {comments.map(comment =>
         <li key={comment.id} className='ThoughtPage__comment'>
           <p className='ThoughtPage__comment-text'>
-            {comment.text}
+            {comment.thought_text}
           </p>
           <p className='ThoughtPage__comment-user'>
-            ANONYMOUS
+            {comment.date_created}
           </p>
         </li>
       )}
