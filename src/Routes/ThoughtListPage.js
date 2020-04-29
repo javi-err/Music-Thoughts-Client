@@ -22,6 +22,7 @@ export class ThoughtListPage extends Component {
       <ThoughtListItem
       key={thought.id}
       thought={thought}
+      comment={this.context.comment}
       />
     )
     

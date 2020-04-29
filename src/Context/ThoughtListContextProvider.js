@@ -45,12 +45,13 @@ class ThoughtListProvider extends Component {
   }
   
   addComment = comments => {
-      this.setState({
-        comments: [...this.state.comments, comments]
+    this.setState({
+      comments: [...this.state.comments, comments],
+      comment: null,
+    })
 
-      })
+}
 
-  }
 
 
   render() {
@@ -64,7 +65,8 @@ class ThoughtListProvider extends Component {
       setPost: this.setPost,
       addPost: this.addPost,  
       setComment: this.setComment,
-      addComment: this.addComment
+      addComment: this.addComment,
+      comment: this.state.comment 
     }
     return (
       <ThoughtListContext.Provider value={value}>

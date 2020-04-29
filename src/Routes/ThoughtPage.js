@@ -14,15 +14,27 @@ export default class ThoughtPage extends Component {
 
   static contextType = ThoughtListContext
 
+fetchNewData = () => {
+  const { thoughtsid } = this.props
+  this.context.clearError()
+  ThoughtApiService.getthought(thoughtsid)
+    .then(this.context.addThought)
+    .catch(this.context.setError)
+  ThoughtApiService.getthoughtComments(thoughtsid)
+    .then(this.context.addComment)
+    .catch(this.context.setError)
+}
+
+
   componentDidMount() {
-    const { thoughtsid } = this.props
-    this.context.clearError()
-    ThoughtApiService.getthought(thoughtsid)
-      .then(this.context.addThought)
-      .catch(this.context.setError)
-    ThoughtApiService.getthoughtComments(thoughtsid)
-      .then(this.context.addComment)
-      .catch(this.context.setError)
+    this.fetchNewData();
+  }
+
+  componentDidUpdate() {
+    if(this.props.comment) {
+      this.fetchNewData();
+      }
+      
   }
 
   // componentWillUnmount() {
@@ -45,7 +57,7 @@ export default class ThoughtPage extends Component {
     const comments = com.filter((comment) => {
          return comment.thought_id === this.props.thoughtsid
        })
-    console.log(this.context.comments)
+    
      if (thought) {
         content = (
         <>

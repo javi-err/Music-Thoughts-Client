@@ -25,12 +25,12 @@ export default class CommentForm extends Component {
   handleSubmit = ev => {
     ev.preventDefault()
     
-    const { thoughtid } = this.props
+    const { thoughtsid } = this.props
     const  text  = this.state.text
-    console.log(thoughtid)
+    console.log(thoughtsid)
     console.log(text)
     
-    ThoughtApiService.postComment(thoughtid, text)
+    ThoughtApiService.postComment(thoughtsid, text)
       .then(this.context.setComment)
       // .then(() => {
       
