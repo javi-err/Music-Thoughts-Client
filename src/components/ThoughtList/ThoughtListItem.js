@@ -36,38 +36,6 @@ function ThoughtTag({ thought }) {
     )
 }
 
-function ThoughtDate({ thought }) {
-  return(
-    <span className='ThoughtListItem-date'>
-      {thought.date_published}
-    </span>
-  )
-}
-
-function ThoughtAuthor({ thought }) {
-  return (
-    <span className='ThoughtListItem-author'>
-      ANONYMOUS
-    </span>
-  )
-}
-
-function ThoughtContent( {thought}) {
-  return ( 
-    <span className='ThoughtListItem-content'>
-      {thought.content}
-    </span>
-  )
-}
-
-function CommentContent( {thought} ) {
-  return (
-    <span className='ThoughtListItem-comments'>
-      {thought.comment}
-    </span>
-  )
-}
-
 
 
 export default ThoughtListItem
