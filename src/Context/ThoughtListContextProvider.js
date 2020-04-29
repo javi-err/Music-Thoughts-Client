@@ -46,7 +46,7 @@ class ThoughtListProvider extends Component {
   
   addComment = comments => {
       this.setState({
-        comments: [...this.state.comments, comments]
+        comments: [comments]
 
       })
 

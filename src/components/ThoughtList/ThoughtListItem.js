@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 import CommentForm from '../CommentForm/CommentForm'
 import ThoughtPage from '../../Routes/ThoughtPage'
+import './ThoughtListItem.css'
 
 export class ThoughtListItem extends Component {
   render() {
@@ -11,15 +12,12 @@ export class ThoughtListItem extends Component {
       <div className='ThoughtListItem'>
         <header className='ThoughtListItem-header'>
           <h2 className='ThoughtListItem_heading'>
-            {thought.title}
           </h2>
-          <ThoughtDate thought={thought} />
+
         </header>
         <footer className='ThoughtListItem-footer'>
-          <ThoughtAuthor thought={thought} />< br/>
-          <ThoughtTag thought={thought}/>< br/>
-          <ThoughtContent thought={thought}/>
           <ThoughtPage thoughtsid={thought.id}/>
+          <CommentForm />
         </footer>
       </div>
         

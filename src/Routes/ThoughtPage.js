@@ -49,11 +49,10 @@ export default class ThoughtPage extends Component {
         content = (
         <>
             <h2>{thought.title}</h2>
-            <p>{thought.tag} />
-            {thought.date_created} />
+            <p>{thought.tag}</p>
+            <p>{thought.date_created}
             </p>
-            <ThoughtForm /> 
-            <ThoughtContent thought={thought}/>
+            <ThoughtContent thought={thought}/> 
             <ThoughtComments comments={comments}/>
         
           </>
