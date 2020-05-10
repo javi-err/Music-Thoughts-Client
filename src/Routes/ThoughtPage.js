@@ -15,9 +15,10 @@ export default class ThoughtPage extends Component {
   static contextType = ThoughtListContext
 
 
-handleLikes = () => {
-  this.context.ThoughtList.likes++
-}
+  handleLikes = (thought) => {
+    let thoughtget = this.context.thoughtList.find(thought);
+    thoughtget = thoughtget.likes + 1;
+    }
 
 fetchNewData = () => {
   const { thoughtsid } = this.props
