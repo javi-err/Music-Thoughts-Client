@@ -70,7 +70,7 @@ fetchNewData = () => {
             <h2>{thought.title}</h2>
             <p>{thought.tag}</p>
             <p>{thought.date_published}</p>
-            <button onClick={this.handleLikes}></button><p>{thought.likes}</p>
+            <button onClick={() => this.handleLikes(thought)}></button><p>{thought.likes}</p>
             <ThoughtContent thought={thought}/> 
             <ThoughtComments comments={comments}/>
         
