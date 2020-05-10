@@ -31,7 +31,7 @@ export default class CommentForm extends Component {
     console.log(text)
     
     ThoughtApiService.postComment(thoughtsid, text)
-      .then(this.context.setComment)
+      .then(this.context.addComment)
       // .then(() => {
       
       // })

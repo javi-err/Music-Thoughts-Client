@@ -3,7 +3,7 @@ import ThoughtListContext from '../Context/ThoughtListContext'
 import ThoughtApiService from '../Services/thought-api-service'
 import ThoughtForm from '../components/ThoughtForm/ThoughtForm'
 import CommentForm from '../components/CommentForm/CommentForm'
-import thoughtApiService from '../Services/thought-api-service';
+
 
 
 
@@ -13,6 +13,11 @@ export default class ThoughtPage extends Component {
   }
 
   static contextType = ThoughtListContext
+
+
+handleLikes = () => {
+  this.context.ThoughtList.likes++
+}
 
 fetchNewData = () => {
   const { thoughtsid } = this.props
@@ -63,8 +68,8 @@ fetchNewData = () => {
         <>
             <h2>{thought.title}</h2>
             <p>{thought.tag}</p>
-            <p>{thought.date_created}
-            </p>
+            <p>{thought.date_published}</p>
+            <button onClick={this.handleLikes}></button><p>{thought.likes}</p>
             <ThoughtContent thought={thought}/> 
             <ThoughtComments comments={comments}/>
         
