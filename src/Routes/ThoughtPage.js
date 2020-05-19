@@ -13,12 +13,25 @@ export default class ThoughtPage extends Component {
   }
 
   static contextType = ThoughtListContext
+  constructor(props) {
+    super(props)
+    this.state={
+      showComments: false,
 
-
-  handleLikes = (thought) => {
-    let thoughtget = this.context.thoughtList.find(thought);
-    thoughtget = thoughtget.likes + 1;
     }
+  }
+  
+
+
+
+
+  handleLikes = (event) => {
+    event.preventDefault()
+    const { thoughtsid } = this.props
+    this.context.clearError()
+    ThoughtApiService.postLike(thoughtsid)
+  }
+
 
 fetchNewData = () => {
   const { thoughtsid } = this.props
@@ -30,6 +43,7 @@ fetchNewData = () => {
     .then(this.context.addComment)
     .catch(this.context.setError)
 }
+
 
 
   componentDidMount() {
@@ -48,7 +62,7 @@ fetchNewData = () => {
   // }
 
 
-  
+
   
   
 
@@ -63,20 +77,28 @@ fetchNewData = () => {
     const comments = com.filter((comment) => {
          return comment.thought_id === this.props.thoughtsid
        })
+
+
     
      if (thought) {
+     
         content = (
+          
         <>
             <h2>{thought.title}</h2>
             <p>{thought.tag}</p>
             <p>{thought.date_published}</p>
-            <button onClick={() => this.handleLikes(thought)}></button><p>{thought.likes}</p>
+            <button onClick={(this.handleLikes)}></button><p>{thought.likes}</p>
             <ThoughtContent thought={thought}/> 
             <ThoughtComments comments={comments}/>
+          }
         
           </>
       )
+      
     }
+    
+    
     return (
       <div className='ThoughtPage'>
         {content}
@@ -105,19 +127,36 @@ function ThoughtContent({ thought }) {
   )
 }
 
+
 function ThoughtComments({ comments = [] }) {
-  return (
-    <ul className='ThoughtPage__comment-list'>
-      {comments.map(comment =>
-        <li key={comment.id} className='ThoughtPage__comment'>
-          <p className='ThoughtPage__comment-text'>
-            {comment.thought_text}
-          </p>
-          <p className='ThoughtPage__comment-user'>
-            {comment.date_created}
-          </p>
-        </li>
-      )}
-    </ul>
-  )
+  if(this.state.showComments) {
+    return (
+        
+
+      <div>
+        
+      <p>Join the disccusion</p>
+  
+      
+      
+      <ul className='ThoughtPage__comment-list'>
+        {comments.map(comment =>
+          <li key={comment.id} className='ThoughtPage__comment'>
+            <p className='ThoughtPage__comment-text'>
+              {comment.thought_text}
+            </p>
+            <p className='ThoughtPage__comment-user'>
+              {comment.date_created}
+            </p>
+          </li>
+        )}
+      </ul>
+      </div>
+      
+    )
+    
+  }
+  else return 'a';
+
+  
 }

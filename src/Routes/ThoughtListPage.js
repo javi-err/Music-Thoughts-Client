@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { useState } from 'react'
 import ThoughtListContext from '../Context/ThoughtListContext'
 import ThoughtApiService from '../Services/thought-api-service'
 import ThoughtListItem from '../components/ThoughtList/ThoughtListItem'
@@ -7,6 +8,10 @@ import ThoughtForm from '../components/ThoughtForm/ThoughtForm'
 
 export class ThoughtListPage extends Component {
   static contextType = ThoughtListContext
+
+
+  
+  
 
   componentDidMount() {
     this.context.clearError()
