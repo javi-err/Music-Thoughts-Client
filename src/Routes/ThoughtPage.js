@@ -3,6 +3,7 @@ import ThoughtListContext from '../Context/ThoughtListContext'
 import ThoughtApiService from '../Services/thought-api-service'
 import ThoughtForm from '../components/ThoughtForm/ThoughtForm'
 import CommentForm from '../components/CommentForm/CommentForm'
+import './ThoughtPage.css'
 
 
 
@@ -91,7 +92,7 @@ fetchNewData = () => {
             <button onClick={(this.handleLikes)}></button><p>{thought.likes}</p>
             <ThoughtContent thought={thought}/> 
             <ThoughtComments comments={comments}/>
-          }
+          
         
           </>
       )
@@ -106,7 +107,7 @@ fetchNewData = () => {
     )
     
   }
-  }
+}
 
 
 
@@ -129,11 +130,10 @@ function ThoughtContent({ thought }) {
 
 
 function ThoughtComments({ comments = [] }) {
-  if(this.state.showComments) {
     return (
         
 
-      <div>
+      <div className="thought-container">
         
       <p>Join the disccusion</p>
   
@@ -155,8 +155,5 @@ function ThoughtComments({ comments = [] }) {
       
     )
     
-  }
-  else return 'a';
-
-  
-}
+        }
+      

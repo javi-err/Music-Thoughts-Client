@@ -1,0 +1,7 @@
+.TopNav {
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    align-items: center;
+    color: white;   
+}

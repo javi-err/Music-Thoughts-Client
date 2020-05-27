@@ -1,5 +1,6 @@
 import React from 'react'
 import BackToTop from './BackToTop'
+import './header.css'
 
 export default function Header() {
   return (

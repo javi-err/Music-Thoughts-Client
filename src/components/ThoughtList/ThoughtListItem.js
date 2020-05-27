@@ -13,8 +13,6 @@ export class ThoughtListItem extends Component {
     return (
       <div className='ThoughtListItem'>
         <header className='ThoughtListItem-header'>
-          <h2 className='ThoughtListItem_heading'>
-          </h2>
 
         </header>
         <footer className='ThoughtListItem-footer'>

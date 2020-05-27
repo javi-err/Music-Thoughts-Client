@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import ThoughtListContext from '../../Context/ThoughtListContext'
 import ThoughtApiService from '../../Services/thought-api-service'
+import './ThoughtForm.css'
 
 
 export default class ThoughtForm extends Component {

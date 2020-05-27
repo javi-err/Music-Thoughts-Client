@@ -4,6 +4,7 @@ import ThoughtListContext from '../Context/ThoughtListContext'
 import ThoughtApiService from '../Services/thought-api-service'
 import ThoughtListItem from '../components/ThoughtList/ThoughtListItem'
 import ThoughtForm from '../components/ThoughtForm/ThoughtForm'
+import './ThoughtListPage.css'
 
 
 export class ThoughtListPage extends Component {
@@ -37,7 +38,7 @@ export class ThoughtListPage extends Component {
     const { error } = this.context
     return (
       
-      <div>
+      <div className="thoughtform-container">
         <ThoughtForm />
         {error ?
         <p className='red'>There was an error </p>
