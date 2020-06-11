@@ -32,7 +32,7 @@ function App() {
       </ThoughtListContextProvider>
       </BrowserRouter>
       
-       <BackToTop/>
+       
     </main>
     </div>
   );

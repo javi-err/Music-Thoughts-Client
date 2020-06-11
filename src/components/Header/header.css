@@ -3,5 +3,8 @@
     flex-direction: column;
     position: fixed;
     align-items: center;
-    color: white;   
+    color: white; 
+    background-color: white;
+    border-radius: 25%;
+    padding: 10px;
 }
