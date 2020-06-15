@@ -1,7 +1,7 @@
 Music Thoughts
 
 
-Link to Project: https://music-thoughts-client-ki00aeury.vercel.app/
+Link to Project: https://music-thoughts-client.vercel.app/
 
 API Documentation: https://dashboard.heroku.com/apps/secret-lowlands-06468
 
