@@ -3,6 +3,7 @@ import ThoughtListContext from '../../Context/ThoughtListContext'
 import ThoughtApiService from '../../Services/thought-api-service'
 import ThoughtForm from '../ThoughtForm/ThoughtForm'
 import ThoughtListItem from '../ThoughtList/ThoughtListItem'
+import './CommentForm.css'
 
 
 

@@ -3,6 +3,7 @@ import ThoughtListContext from '../Context/ThoughtListContext'
 import ThoughtApiService from '../Services/thought-api-service'
 import ThoughtForm from '../components/ThoughtForm/ThoughtForm'
 import CommentForm from '../components/CommentForm/CommentForm'
+import Header from '../components/Header/Header'
 import './ThoughtPage.css'
 
 
@@ -89,7 +90,7 @@ fetchNewData = () => {
             <h2>{thought.title}</h2>
             <p>{thought.tag}</p>
             <p>{thought.date_published}</p>
-            <button onClick={(this.handleLikes)}></button><p>{thought.likes}</p>
+            <button className ="LikeButton" onClick={(this.handleLikes)}>Like!</button><p>{thought.likes}</p>
             <ThoughtContent thought={thought}/> 
             <ThoughtComments comments={comments}/>
           
@@ -101,6 +102,7 @@ fetchNewData = () => {
     
     
     return (
+      
       <div className='ThoughtPage'>
         {content}
       </div>

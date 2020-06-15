@@ -35,6 +35,7 @@ export default class ThoughtForm extends Component {
   render() {
     return (
       <form className = "ThoughtForm" onSubmit={this.handleSubmit}>
+        <div className = "ThoughtFormTitle">Music Thoughts</div>
         <input name='title' required id='title' placeholder='Type the title of your post'></input>< br/>
          <textarea name="content" data-limit="300" required id="content" cols='30' rows='3' placeholder="Type your post"></textarea>< br/>
          <select id="select-genre" name='tag'>

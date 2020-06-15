@@ -4,3 +4,14 @@
     align-items: center;
 }
 
+@media (max-width: 1000px) {
+    .thoughtform-container {
+    padding-left: 150px;
+    }
+}
+
+@media (max-width: 700px) {
+    .thoughtform-container{
+        padding: 0;
+    }
+}
