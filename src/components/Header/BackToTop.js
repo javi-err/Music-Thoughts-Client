@@ -4,7 +4,6 @@ export class BackToTop extends Component {
 
   handleBackToTopButton = (event) => {
     event.preventDefault();
-    console.log('Back to top was clicked')
     window.scrollTo(0, 0);
   }
  

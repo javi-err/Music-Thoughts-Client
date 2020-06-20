@@ -39,6 +39,8 @@ form.ThoughtForm {
     }
 
     
-    
+label {
+    display: inline-block;
+}
     
 }

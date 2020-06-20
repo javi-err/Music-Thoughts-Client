@@ -34,7 +34,7 @@ class ThoughtListProvider extends Component {
   }
 
   addPost = post => {
-    console.log(post)
+  
     this.setState({
       thoughtList: [...this.state.thoughtList, post]
     })

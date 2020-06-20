@@ -55,7 +55,7 @@ const thoughtApiService = {
       )
   },
   postComment(thoughtid, thought_text, date_created) {
-    console.log(thoughtid)
+    
     return fetch(`${config.API_ENDPOINT}/comments`, {
       method: 'POST',
       headers: {
@@ -75,7 +75,6 @@ const thoughtApiService = {
       )
   },
   postLike(thoughtid) {
-    console.log(thoughtid)
     return fetch(`${config.API_ENDPOINT}/thoughts/${thoughtid}/likes`, {
       method: 'POST',
       headers: {

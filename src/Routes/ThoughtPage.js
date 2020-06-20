@@ -91,7 +91,9 @@ fetchNewData = () => {
             <p>{thought.tag}</p>
             <p>{thought.date_published}</p>
             <button className ="LikeButton" onClick={(this.handleLikes)}>Like!</button><p>{thought.likes}</p>
+            {/* ThoughtConent renders out the actual content inside of the post */}
             <ThoughtContent thought={thought}/> 
+            {/* Thought comments renders out the comments listed under said post */}
             <ThoughtComments comments={comments}/>
           
         

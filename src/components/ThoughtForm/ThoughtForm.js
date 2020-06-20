@@ -17,17 +17,10 @@ export default class ThoughtForm extends Component {
      ev.target.content.value = ''
      ev.target.title.value = ''
      ev.target.tag.value = 'notagenre'
-     console.log(content, title, tag)
+    
     ThoughtApiService.postthought(content, title, tag)
     
       .then(this.context.addPost)
-      // .then(() => {
-      // //   console.log(ev.target.content)
-      // //    ev.target.content.value=''
-      // //    ev.target.title.value=''
-      // //    ev.target.tag.value=''
-      // //   console.log({thought})
-      // // })
       .catch(this.context.setError)
       
   }
@@ -36,8 +29,11 @@ export default class ThoughtForm extends Component {
     return (
       <form className = "ThoughtForm" onSubmit={this.handleSubmit}>
         <div className = "ThoughtFormTitle">Music Thoughts</div>
+        <label for="title">Title</label>
         <input name='title' required id='title' placeholder='Type the title of your post'></input>< br/>
+        <label for="content">Write your thought</label>
          <textarea name="content" data-limit="300" required id="content" cols='30' rows='3' placeholder="Type your post"></textarea>< br/>
+        <label for="select-genre">Choose the Genre</label>
          <select id="select-genre" name='tag'>
                     <option value = "notagenre">Select your genre</option>
                     <option value = "Hip-Hop/Rap">Hip-Hop/Rap</option>

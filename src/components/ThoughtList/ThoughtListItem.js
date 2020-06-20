@@ -16,7 +16,9 @@ export class ThoughtListItem extends Component {
 
         </header>
         <footer className='ThoughtListItem-footer'>
+          {/* ThoughtPage renders out the entire page with the posting forms and the content  */}
           <ThoughtPage thoughtsid={thought.id} comment={comment}/>
+          {/* Comment Form does the same rendering of the forms and comments but with the comments */}
           <CommentForm thoughtsid={thought.id}/>
         </footer>
       </div>

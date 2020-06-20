@@ -22,6 +22,7 @@ export class ThoughtListPage extends Component {
   }
 
   renderThoughts() {
+    // This maps out each individual post
     const { thoughtList = [] } = this.context
     return thoughtList.map(thought => 
      

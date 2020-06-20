@@ -22,7 +22,7 @@ export class PostBox extends Component {
         author,
         text
       };
-      console.log(reply);
+  
       this.setState({comments: this.state.comments.concat([reply])})
     
     }

@@ -32,8 +32,8 @@ export class UserThought extends Component {
   handleSubmit(event) {
     event.preventDefault();
     const {userthought, selectgenre} = this.state;
-    console.log("User Thought: ", userthought.value)
-    console.log("Selected Genre: ", selectgenre.value)
+    ("User Thought: ", userthought.value)
+  
     
 
   }
